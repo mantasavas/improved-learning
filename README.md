@@ -1,24 +1,10 @@
-# README
+# Learning App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a mixture of the following techniques, that are backed up by science and proved to be effective in tackling weak memory: 
 
-Things you may want to cover:
+* Spaced repetition
 
-* Ruby version
+* Flash cards
 
-* System dependencies
+* Pomodoro timer
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
