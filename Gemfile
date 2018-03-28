@@ -54,8 +54,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# My Gems
+# ========== My Gems ==============
 gem 'devise'
 gem 'pry'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+
+
+gem 'bootstrap', '~> 4.0.0'
