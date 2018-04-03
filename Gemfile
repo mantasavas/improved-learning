@@ -62,10 +62,6 @@ gem 'omniauth-google-oauth2'
 
 gem 'bootstrap', '~> 4.0.0'
 
-# I'm going to use locally database sqlite
-group :development do
-  gem 'sqlite3'
-end
 
 # And for heroku postgress db
 group :production do
