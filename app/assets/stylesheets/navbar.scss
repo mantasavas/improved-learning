@@ -46,6 +46,7 @@ a:hover, a:visited, a:link, a:active
 .form-header{
 	border-bottom: 2px solid #e3dcdc;
 	padding-bottom: 12px;
+	font-weight: 900;	
 }
 
 .new_user{
@@ -53,7 +54,11 @@ a:hover, a:visited, a:link, a:active
 }
 
 body  {
-    background-image: url("./backgroundimage.jpeg");
+  
+}
+
+body.controller-user{
+	background-image: url("./backgroundimage.jpeg");
     background-color: #cccccc;
     background-repeat: no-repeat;
 	background-size: cover;
