@@ -1,0 +1,52 @@
+
+a:hover, a:visited, a:link, a:active
+{
+   text-decoration: none;
+}
+
+.navbar {
+  background-color: black;	
+}
+
+.form-inline li{
+	list-style-type: none;
+	margin: 0 5px;
+}
+
+.header-button-input{
+	margin: 0 100px;
+}
+
+.header-text{
+	color: white;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.form-group{
+	padding-right: 20px;
+}
+
+.button-text{
+	text-align: center;
+}
+
+.container{
+	padding-top: 30px;
+	margin-top: 5px;
+	background-color: #c4cec333;
+	border-radius: 10px;
+	border: 5px solid #e3dcdc;
+}
+
+.form-header{
+	border-bottom: 2px solid #e3dcdc;
+	padding-bottom: 12px;
+}
+
+.new_user{
+	padding-top: 30px;
+}
