@@ -63,7 +63,7 @@ gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.0.0'
 
 # I'm going to use locally database sqlite
-group :devlopment, :test do
+group :development, :test do
   gem 'sqlite3'
 end
 
