@@ -37,9 +37,10 @@ a:hover, a:visited, a:link, a:active
 .container{
 	padding-top: 30px;
 	margin-top: 5px;
-	background-color: #c4cec333;
+	background-color: white;
 	border-radius: 10px;
 	border: 5px solid #e3dcdc;
+	opacity: 0.95; /*Default*/
 }
 
 .form-header{
@@ -49,4 +50,11 @@ a:hover, a:visited, a:link, a:active
 
 .new_user{
 	padding-top: 30px;
+}
+
+body  {
+    background-image: url("./backgroundimage.jpeg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+	background-size: cover;
 }
