@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -52,18 +53,18 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
 # ========== My Gems ==============
 gem 'devise'
 gem 'pry'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
-
 gem 'bootstrap', '~> 4.0.0'
 
 # I'm going to use locally database sqlite
 group :development, :test do
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
   gem 'sqlite3'
 end
 
