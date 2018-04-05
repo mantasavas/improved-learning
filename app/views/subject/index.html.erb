@@ -1,11 +1,10 @@
-<h1>Create a subject</h1>
-<button class="button-save"><%= link_to "Create Subject", new_subject_path %></button>
-
-<h1>Your subjects are: </h1>
-<% @subject.each do |subject| %>
-	<div class="subject_wrapper">
-		<h2 class="title"> <%= link_to subject.title, subject %> </h2>
-		<p class="body"><%= sanitize truncate(subject.body, length:100) %></p>
-		<p class="date"> <%= time_ago_in_words(subject.created_at) %></p>
-	</div>
-<% end %>
+<div class="subject-container">
+	<h1 class="subject-header"> Your Subjects </h1>
+		<% @subject.each do |subject| %>
+			<div class="subject-wrapper">
+				<h2 class="subject-title"> <%= link_to subject.title, subject %> </h2>
+				<p class="subject-body"><%= sanitize truncate(subject.body, length:100) %></p>
+				<p class="subject-date"> <%= time_ago_in_words(subject.created_at) %></p>
+			</div>
+		<% end %>
+</div>

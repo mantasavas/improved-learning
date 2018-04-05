@@ -10,6 +10,8 @@
     </div>
     <div class="form-group row">
       <% if current_user  %>
+        <li><%= link_to "Create Subject", new_subject_path, class: 'btn btn-primary black-btn' %></li>
+        <li><%= link_to "All Subjects", display_all_path, class: 'btn btn-primary black-btn' %></li>
         <li><%= link_to "Log Out", destroy_user_session_path, class: 'btn btn-primary', :method => "delete" %></li>
       <% else %>
         <li><%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> </li>

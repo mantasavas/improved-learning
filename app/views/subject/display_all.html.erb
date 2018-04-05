@@ -1,0 +1,8 @@
+<h1>Your subjects are: </h1>
+<% @subject.each do |subject| %>
+	<div class="subject_wrapper">
+		<h2 class="title"> <%= link_to subject.title, subject %> </h2>
+		<p class="body"><%= sanitize truncate(subject.body, length:100) %></p>
+		<p class="date"> <%= time_ago_in_words(subject.created_at) %></p>
+	</div>
+<% end %>

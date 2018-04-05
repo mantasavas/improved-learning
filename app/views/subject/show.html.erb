@@ -10,8 +10,9 @@
 	<%= sanitize @subject.body %>
 </p>
 
-<p>
-	<button class="button-edit"><%= link_to "Edit", edit_subject_path(@subject) %></button>
-	<button class="button-delete"><%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure?'} %></button>
-</p>
-
+<% if @belongs %>
+	<p>
+		<button class="button-edit"><%= link_to "Edit", edit_subject_path(@subject) %></button>
+		<button class="button-delete"><%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure?'} %></button>
+	</p>
+<% end %>

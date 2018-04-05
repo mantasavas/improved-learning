@@ -5,28 +5,39 @@ class SubjectController < ApplicationController
   before_action :check_access, only: :index
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
+  # Displays all users subjects
   def index
-    @subject = Subject.all.order('created_at DESC')
+    # Gets current logged in user subjects
+    @subject = current_user.subjects
   end
 
-  def show
+  # Displays all subjects
+  def display_all
+    @subject = Subject.all
+  end
+
+  def show 
     @subject = Subject.find(params[:id])
+    if current_user == @subject.user
+      @belongs = true
+    else
+      @belongs = false
+    end
   end
 
   def new
-    puts "This is a test!!!!!!!!!!!!"
     @subject = Subject.new
-    puts "This is a test!!!!!!!!!!!!"
   end
 
   def create
 
   	@subject = Subject.new(subject_params)
+    @subject.user = current_user
 
   	if @subject.save
       redirect_to @subject
     else
-      # Rencer because it doesn't do another http refresh, and user won't lose all his data in a form he typed in
+      # Render because it doesn't do another http refresh, and user won't lose all his data in a form he typed in
       render 'new'
     end
   end

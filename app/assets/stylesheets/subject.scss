@@ -1,3 +1,30 @@
 // Place all the styles related to the subject controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.subject-container{
+ 	position: absolute;
+    top: -50px;
+    transform: translateX(20%) translateY(30%);
+    width: 75%;
+}
+
+.subject-header{
+	text-align: center;
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif
+}
+
+.subject-wrapper{
+	margin-top: 20px;
+	border-radius: 20px;
+	border: 3px solid black;
+}
+
+.subject-title{
+	text-align: center;
+}
