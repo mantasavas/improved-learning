@@ -4,6 +4,7 @@
 class SubjectController < ApplicationController
   before_action :check_access, only: :index
   def index
+    @subject = Subject.all.order('created_at DESC')
   end
 
   def new
