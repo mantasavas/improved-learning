@@ -1,0 +1,30 @@
+<%= form_for @subject do|f|%>
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<trix-editor input="post_title"></trix-editor>
+		<%= f.label :Output_in_html%><br>
+		<%= f.text_area :body, id: :post_title %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+	<!-- If there are any errors in input, display and inform about it -->
+	<% if @subject.errors.any? %>
+		<div id="errors">
+			<h2>This subject can't be saved. Please make sure: </h2>
+			<ul>
+				<% @subject.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+
+<% end %>

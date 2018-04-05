@@ -4,8 +4,9 @@
 
 <p class="date">
 	Submitted <%= time_ago_in_words(@subject.created_at) %> ago
+	<%= link_to 'Edit', edit_subject_path(@subject) %>
 </p>
 
 <p class="body">
-	<%= @subject.body %>
+	<%= sanitize @subject.body %>
 </p>
