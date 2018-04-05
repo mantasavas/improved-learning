@@ -43,6 +43,9 @@ class SubjectController < ApplicationController
   end
 
   def destroy
+    @subject.destroy
+
+    redirect_to subjects_path  
   end
 
   private

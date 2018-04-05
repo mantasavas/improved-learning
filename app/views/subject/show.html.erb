@@ -4,9 +4,14 @@
 
 <p class="date">
 	Submitted <%= time_ago_in_words(@subject.created_at) %> ago
-	<%= link_to 'Edit', edit_subject_path(@subject) %>
 </p>
 
 <p class="body">
 	<%= sanitize @subject.body %>
 </p>
+
+<p>
+	<button class="button-edit"><%= link_to "Edit", edit_subject_path(@subject) %></button>
+	<button class="button-delete"><%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure?'} %></button>
+</p>
+
