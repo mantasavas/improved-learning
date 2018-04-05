@@ -60,6 +60,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'pry'
 gem 'trix'
+gem 'jquery-rails'
 
 # I'm going to use locally database sqlite
 group :development, :test do

@@ -1,18 +1,20 @@
-<h1 class="title">
-	<%= @subject.title %>
-</h1>
+<div class="subject-container">
+	<% if @belongs %>
+		<p class="button-subject">
+			<%= link_to "Edit", edit_subject_path(@subject), class: :'btn btn-primary btn-lg button-edit' %>
+			<%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure?'}, class: :'btn btn-primary btn-lg button-delete'%>
+		</p>
+	<% end %>
+	<h1 class="subject-header"> Your Subject </h1>
+	<h1 class="subject-title">
+		<%= @subject.title %>
+	</h1>
 
-<p class="date">
-	Submitted <%= time_ago_in_words(@subject.created_at) %> ago
-</p>
-
-<p class="body">
-	<%= sanitize @subject.body %>
-</p>
-
-<% if @belongs %>
-	<p>
-		<button class="button-edit"><%= link_to "Edit", edit_subject_path(@subject) %></button>
-		<button class="button-delete"><%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure?'} %></button>
+	<p class="subject-date">
+		Submitted <%= time_ago_in_words(@subject.created_at) %> ago
 	</p>
-<% end %>
+
+	<p class="body">
+		<%= sanitize @subject.body %>
+	</p>
+<div>

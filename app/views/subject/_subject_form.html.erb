@@ -1,30 +1,33 @@
-<%= form_for @subject do|f|%>
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
+<div class="subject-container">
+	<h1 class="subject-header"> <%= locals[:title] %> </h1>
+	<%= form_for @subject do|f|%>
+		<p>
+			<%= f.label :title, class: :title_label %><br>
+			<%= f.text_field :title, class: :title_text %>
+		</p>
 
-	<p>
-		<trix-editor input="post_title"></trix-editor>
-		<%= f.label :Output_in_html %><br>
-		<%= f.text_area :body, id: :post_title %>
-	</p>
+		<p>
+			<trix-editor input="subject_body"></trix-editor>
+			<%= f.label :HTML, class: :body_title %><br>
+			<%= f.text_area :body, id: :subject_body, class: :body_text %>
+		</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
+		<p>
+			<%= f.submit 'Save', class: 'btn btn-primary' %>
+		</p>
 
-	<!-- If there are any errors in input, display and inform about it -->
-	<% if @subject.errors.any? %>
-		<div id="errors">
-			<h2>This subject can't be saved. Please make sure: </h2>
-			<ul>
-				<% @subject.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
+		<!-- If there are any errors in input, display and inform about it -->
+		<% if @subject.errors.any? %>
+			<div id="errors">
+				<h2>This subject can't be saved. Please make sure: </h2>
+				<ul>
+					<% @subject.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
+
 	<% end %>
-	
-
-<% end %>
+</div>

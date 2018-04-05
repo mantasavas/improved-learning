@@ -2,9 +2,9 @@
 	<h1 class="subject-header"> Your Subjects </h1>
 		<% @subject.each do |subject| %>
 			<div class="subject-wrapper">
-				<h2 class="subject-title"> <%= link_to subject.title, subject %> </h2>
+				<h2 class="subject-title"> <%= link_to subject.title, subject, class: :link_subject, style: 'text-decoration:none;' %> </h2>
+				<p class="subject-date"> <%= time_ago_in_words(subject.created_at) %> ago</p>
 				<p class="subject-body"><%= sanitize truncate(subject.body, length:100) %></p>
-				<p class="subject-date"> <%= time_ago_in_words(subject.created_at) %></p>
 			</div>
 		<% end %>
 </div>
