@@ -61,12 +61,12 @@ gem 'omniauth-twitter'
 gem 'pry'
 gem 'trix'
 gem 'jquery-rails'
+gem 'sqlite3'
 
 # I'm going to use locally database sqlite
 group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
-  gem 'sqlite3'
 end
 
 # And for heroku postgress db
