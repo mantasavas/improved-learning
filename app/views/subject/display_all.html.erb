@@ -1,5 +1,5 @@
 <div class="subject-container">
-	<h1 class="subject-header"> Your Subjects </h1>
+	<h1 class="subject-header"> All Subjects </h1>
 		<% @subject.each do |subject| %>
 			<div class="subject-wrapper">
 				<h2 class="subject-title"> <%= link_to subject.title, subject, class: :link_subject, style: 'text-decoration:none;' %> </h2>
