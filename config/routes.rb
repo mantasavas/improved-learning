@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
-  resources :subject
   devise_scope :user do
     authenticated :user do
       root 'welcome#index', as: :authenticated_root
@@ -11,5 +10,9 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
+  resources :subject, as: :subjects
+  get '/display_all', to: "subject#display_all"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

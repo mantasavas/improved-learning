@@ -58,8 +58,12 @@ body  {
 }
 
 body.controller-user{
-	background-image: url("./backgroundimage.jpeg");
+	background: image-url("./backgroundimage.jpeg");
     background-color: #cccccc;
     background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.btn-primary.black-btn{
+	background-color: #000;
 }
