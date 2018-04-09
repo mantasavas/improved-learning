@@ -37,7 +37,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  
   gem 'selenium-webdriver'
 end
 
@@ -62,6 +62,10 @@ gem 'pry'
 gem 'trix'
 gem 'jquery-rails'
 gem 'sqlite3'
+gem 'rspec-rails', '~>3.0'
+gem 'database_cleaner'
+gem 'capybara', '~> 2.13'
+gem 'factory_girl_rails'
 
 # I'm going to use locally database sqlite
 group :development, :test do
@@ -73,4 +77,8 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+
+group :test do
+ 
 end

@@ -9,13 +9,36 @@ class User < ApplicationRecord
 
   has_many :subjects
 
+  META = [:id, :created_at, :updated_at]
+
+  # Function handling callback from google
   def self.from_omniauth(auth)
-    # binding.pry
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
+    #binding.pry
+    if !auth.provider.nil? and !auth.uid.nil? and !auth.info.email.nil?
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0, 20]
+      end
+    else
+      return false
     end
   end
+
+  # Returns all users, there emails have a match
+  def self.find_mathing_letter(letter)
+    where("email LIKE ?", "#{letter}%").order(:email)
+  end
+
+=begin
+  # From stackoverflow: https://stackoverflow.com/questions/4738439/how-to-test-for-activerecord-object-equality
+  # Can't compare active record objects using matchers in rspec so need some kind of functions into rescue
+  def self.eql_attributes?(original,new)
+     original = original.reject {|column| column.name == META}
+     new = new.attributes.symbolize_keys.with_indifferent_access.except(*META)
+     original == new
+  end
+=end
+
 end
