@@ -35,9 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  
+
   gem 'selenium-webdriver'
 end
 
@@ -51,21 +51,21 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # ========== My Gems ==============
 gem 'bootstrap', '~> 4.0.0'
+gem 'capybara', '~> 2.13'
+gem 'database_cleaner'
 gem 'devise'
+gem 'factory_girl_rails'
+gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'pry'
-gem 'trix'
-gem 'jquery-rails'
-gem 'sqlite3'
 gem 'rspec-rails', '~>3.0'
-gem 'database_cleaner'
-gem 'capybara', '~> 2.13'
-gem 'factory_girl_rails'
+gem 'sqlite3'
+gem 'trix'
 
 # I'm going to use locally database sqlite
 group :development, :test do
@@ -80,5 +80,4 @@ group :production do
 end
 
 group :test do
- 
 end
