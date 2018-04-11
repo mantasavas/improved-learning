@@ -55,20 +55,20 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # ========== My Gems ==============
 gem 'bootstrap', '~> 4.0.0'
-gem 'capybara', '~> 2.13'
 gem 'database_cleaner'
 gem 'devise'
-gem 'factory_girl_rails'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
-gem 'pry'
-gem 'rspec-rails', '~>3.0'
 gem 'sqlite3'
 gem 'trix'
 
 # I'm going to use locally database sqlite
 group :development, :test do
+  gem 'capybara', '~> 2.13'
+  gem 'factory_girl_rails'
+  gem 'pry'
+  gem 'rspec-rails', '~>3.0'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 end
@@ -77,7 +77,4 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-end
-
-group :test do
 end
