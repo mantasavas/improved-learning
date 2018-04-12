@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :subject, as: :subjects
-  get '/display_all', to: 'subject#display_all'
+  resources :subjects
+  get '/display_all', to: 'subjects#display_all'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

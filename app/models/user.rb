@@ -30,12 +30,4 @@ class User < ApplicationRecord
   def self.find_matching_letter(letter)
     where('email LIKE ?', "#{letter}%").order(:email)
   end
-
-  #   # From stackoverflow: https://stackoverflow.com/questions/4738439/how-to-test-for-activerecord-object-equality
-  #   # Can't compare active record objects using matchers in rspec so need some kind of functions into rescue
-  #   def self.eql_attributes?(original,new)
-  #      original = original.reject {|column| column.name == META}
-  #      new = new.attributes.symbolize_keys.with_indifferent_access.except(*META)
-  #      original == new
-  #   end
 end

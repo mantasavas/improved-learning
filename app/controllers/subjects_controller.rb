@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 # Handling main subject funcionality: basic CRUD (create, delete, update subject and it's description)
-class SubjectController < ApplicationController
+class SubjectsController < ApplicationController
   before_action :check_access, only: %i[index show edit update destroy display_all create new]
   before_action :find_user, only: %i[show edit update destroy]
 
   # Displays all users subjects
   def index
     # Gets current logged in user subjects
-    @subject = current_user.subjects
+    @subjects = current_user.subjects
   end
 
   # Displays all subjects

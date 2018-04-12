@@ -1,5 +1,5 @@
 <div class="subject-container">
-	<h1 class="subject-header"> <%= locals[:title] %> </h1>
+	<h1 class="subject-header"> <%= title %> </h1>
 	<%= form_for @subject do|f|%>
 		<p>
 			<%= f.label :title, class: :title_label %><br>
@@ -27,7 +27,7 @@
 				</ul>
 			</div>
 		<% end %>
-		
+
 
 	<% end %>
 </div>
