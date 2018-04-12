@@ -26,3 +26,6 @@
 /app/assets/javascripts/callbacks.coffee
 /app/assets/javascripts/subject.coffee
 /app/assets/javascripts/welcome.coffee
+
+# Ignore scaffold scss files
+/app/assets/stylesheets/callbacks.scss

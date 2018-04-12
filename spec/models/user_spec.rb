@@ -30,14 +30,14 @@ describe User do
 
         # Depricated, needs to be changed!!
         # User.find_mathing_letter("j").each{|user| expect(user.email).to.in? [@jack.email, @john.email]}
-        described_class.find_mathing_letter('j').each { |user| user.email.should.in? [@jack.email, @john.email] }
+        described_class.find_matching_letter('j').each { |user| user.email.should.in? [@jack.email, @john.email] }
         false
       end
     end
 
     context 'not a matching first letter' do
       it "does not return users that don't start with the provided letter" do
-        described_class.find_mathing_letter('j').should_not include @tom
+        described_class.find_matching_letter('j').should_not include @tom
       end
     end
   end

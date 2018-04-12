@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   # Returns all users, there emails have a match
-  def self.find_mathing_letter(letter)
+  def self.find_matching_letter(letter)
     where('email LIKE ?', "#{letter}%").order(:email)
   end
 
