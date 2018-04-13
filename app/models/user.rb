@@ -7,9 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
+  validates :email, uniqueness: true
   has_many :subjects
-
-  META = %i[id created_at updated_at].freeze
 
   # Function handling callback from google
   def self.from_omniauth(auth)
@@ -20,9 +19,10 @@ class User < ApplicationRecord
         user.uid = auth.uid
         user.email = auth.info.email
         user.password = Devise.friendly_token[0, 20]
+        return true
       end
     else
-      false
+      return false
     end
   end
 

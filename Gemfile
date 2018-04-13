@@ -66,11 +66,12 @@ gem 'trix'
 # I'm going to use locally database sqlite
 group :development, :test do
   gem 'capybara', '~> 2.13'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails', '~>3.0'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 # And for heroku postgress db
