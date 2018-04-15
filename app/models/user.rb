@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_many :subjects
 
-  # Function handling callback from google
   def self.from_omniauth(auth)
     # binding.pry
     if !auth.provider.nil? && !auth.uid.nil? && !auth.info.email.nil?
@@ -26,7 +25,6 @@ class User < ApplicationRecord
     end
   end
 
-  # Returns all users, there emails have a match
   def self.find_matching_letter(letter)
     where('email LIKE ?', "#{letter}%").order(:email)
   end
