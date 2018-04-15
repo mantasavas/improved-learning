@@ -67,13 +67,14 @@ gem 'trix'
 group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
+  gem 'launchy'
   gem 'pry'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~>3.0'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'scss_lint', require: false
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
-  gem 'rails-controller-testing'
-  gem 'launchy'
 end
 
 # And for heroku postgress db

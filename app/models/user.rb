@@ -21,7 +21,7 @@ class User < ApplicationRecord
         return true
       end
     else
-      return false
+      false
     end
   end
 

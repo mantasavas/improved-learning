@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :user do
-    email 'matas@gmail.com'
-    password 'kalfijroas'
+    email 'matas.savickis@gmail.com'
+    password 'slaptasraktas'
     uid '12548793'
     provider 'google_oauth2'
 
@@ -12,10 +12,5 @@ FactoryBot.define do
         create(:subject, user: user)
       end
     end
-  end
-
-  factory :subject do
-    title 'This is long title'
-    body 'Inside body. This must be at least 30 symbols long'
   end
 end

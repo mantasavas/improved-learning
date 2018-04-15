@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 include Warden::Test::Helpers
@@ -28,7 +30,7 @@ RSpec.describe SubjectsController, type: :controller do
         expect(assigns(:subject)).to be_a_new(Subject)
       end
 
-      it "renders the subject template" do
+      it 'renders the subject template' do
         allow(controller).to receive(:user_signed_in?).and_return(true)
         get :new
         expect(response).to render_template('subjects/new')
@@ -44,13 +46,13 @@ RSpec.describe SubjectsController, type: :controller do
     end
 
     context 'when user saves subject' do
-      it "creates the subject and redirect to subject view" do
+      it 'creates the subject and redirect to subject view' do
         find('[name=commit]').click
         current_path.should eq '/subjects/2'
       end
 
-      it "adds subject in subjects table" do
-        expect{ find('[name=commit]').click }.to change(Subject, :count).by(1)
+      it 'adds subject in subjects table' do
+        expect { find('[name=commit]').click }.to change(Subject, :count).by(1)
       end
     end
 
@@ -69,7 +71,7 @@ RSpec.describe SubjectsController, type: :controller do
 
       it 'subject is not saved in subjects table' do
         fill_in 'subject[title]', with: 'ss'
-        expect{ find('[name=commit]').click }.to change(Subject, :count).by(0)
+        expect { find('[name=commit]').click }.to change(Subject, :count).by(0)
       end
     end
   end

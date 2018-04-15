@@ -6,13 +6,14 @@ describe User do
   describe '.from_omniauth?' do
     let(:auth_object) do
       double(
-            provider: 'google_oauth2',
-            uid: '103648144954862111999',
-            info: double(
-                email: 'mantas.savickis7892@gmail.com',
-                first_name: 'Mantas',
-                last_name: 'Savickis'
-            ))
+        provider: 'google_oauth2',
+        uid: '103648144954862111999',
+        info: double(
+          email: 'mantas.savickis7892@gmail.com',
+          first_name: 'Mantas',
+          last_name: 'Savickis'
+        )
+      )
     end
 
     context 'when authentication object is valid' do
@@ -21,15 +22,15 @@ describe User do
 
     context 'when authentication object is not valid' do
       it 'missing email' do
-        allow(auth_object).to receive_message_chain("info.email") { nil }
+        allow(auth_object).to receive_message_chain('info.email') { nil }
         expect(described_class.from_omniauth(auth_object)).to be_falsey
       end
       it 'missing provider' do
-        allow(auth_object).to receive_message_chain("uid") { nil }
+        allow(auth_object).to receive('uid').and_return(nil)
         expect(described_class.from_omniauth(auth_object)).to be_falsey
       end
       it 'missing uid' do
-        allow(auth_object).to receive_message_chain("provider") { nil }
+        allow(auth_object).to receive('provider').and_return(nil)
         expect(described_class.from_omniauth(auth_object)).to be_falsey
       end
     end
@@ -58,13 +59,13 @@ describe User do
 
     context 'when did not found unmatching latter emails' do
       it 'return only t matches' do
-        described_class.find_matching_letter('t').each { |user| expect(user.email).not_to include(petras.email, povilas.email)}
+        described_class.find_matching_letter('t').each { |user| expect(user.email).not_to include(petras.email, povilas.email) }
       end
     end
   end
 
   context 'when user has many subjects' do
-    it {should have_many(:subjects)}
+    it { is_expected.to have_many(:subjects) }
   end
 
   context 'when duplicate emails' do
