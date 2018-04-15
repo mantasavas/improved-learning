@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
-# Handling main subject funcionality: basic CRUD (create, delete, update subject and it's description)
 class SubjectsController < ApplicationController
   before_action :check_access, only: %i[index show edit update destroy display_all create new]
   before_action :find_user, only: %i[show edit update destroy]
 
-  # Displays all users subjects
   def index
-    # Gets current logged in user subjects
     @subjects = current_user.subjects
   end
 
-  # Displays all subjects
   def display_all
     @subject = Subject.all
   end
@@ -32,7 +28,6 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to @subject
     else
-      # Render because it doesn't do another http refresh, and user won't lose all his data in a form he typed in
       render 'new'
     end
   end

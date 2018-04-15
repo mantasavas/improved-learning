@@ -6,12 +6,14 @@ Warden.test_mode!
 RSpec.describe SubjectsController, type: :controller do
   render_views
 
-  describe 'GET #new' do
-    before do
-      allow(controller).to receive(:user_signed_in?).and_return(false)
-      allow(controller).to receive(:current_user).and_return(false)
-    end
+  let(:user) { create(:user_with_subject) }
 
+  before do
+    allow(controller).to receive(:user_signed_in?).and_return(false)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
+
+  describe 'GET #new' do
     context 'when user is unauthenticated' do
       it 'redirects to login' do
         get :new
@@ -33,7 +35,6 @@ RSpec.describe SubjectsController, type: :controller do
       end
     end
 
-    let(:user) { FactoryBot.create(:user) }
     before { login_as(user, scope: :user) }
 
     before do
@@ -42,11 +43,10 @@ RSpec.describe SubjectsController, type: :controller do
       fill_in 'subject[body]', with: 'In subject body. This must be longer then 20 symbols minimum'
     end
 
-
     context 'when user saves subject' do
       it "creates the subject and redirect to subject view" do
         find('[name=commit]').click
-        current_path.should eq '/subjects/1'
+        current_path.should eq '/subjects/2'
       end
 
       it "adds subject in subjects table" do
@@ -70,6 +70,23 @@ RSpec.describe SubjectsController, type: :controller do
       it 'subject is not saved in subjects table' do
         fill_in 'subject[title]', with: 'ss'
         expect{ find('[name=commit]').click }.to change(Subject, :count).by(0)
+      end
+    end
+  end
+
+  describe 'GET #index' do
+    context 'when user is not logged in' do
+      it 'cannot see subject index page' do
+        get :index
+        expect(response).to redirect_to unauthenticated_root_url
+      end
+    end
+
+    context 'when user logged in' do
+      it 'can see subject index page' do
+        allow(controller).to receive(:user_signed_in?).and_return(true)
+        get :index
+        expect(response).to render_template('subjects/index')
       end
     end
   end

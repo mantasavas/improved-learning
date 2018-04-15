@@ -41,22 +41,23 @@ describe User do
     let!(:povilas) { create(:user, email: 'povilas.remiga25@gmail.com') }
 
     context 'when found matching letter' do
-      it 'returned p letter matches' do
+      it 'return p letter matches' do
         described_class.find_matching_letter('p').each { |user| user.email.should.in? [petras.email, povilas.email] }
       end
-      it 'returned t letter matches' do
+
+      it 'return t letter matches' do
         described_class.find_matching_letter('t').each { |user| user.email.should.in? [tomas.email] }
       end
     end
 
-    context 'when did not found any matches' do
-      it 'returned r letter empty match' do
+    context 'when did not found any email matches' do
+      it 'return r letter empty match' do
         expect(described_class.find_matching_letter('r')).to be_empty
       end
     end
 
-    context 'when did not found unmatching latter' do
-      it 'returned only t matches' do
+    context 'when did not found unmatching latter emails' do
+      it 'return only t matches' do
         described_class.find_matching_letter('t').each { |user| expect(user.email).not_to include(petras.email, povilas.email)}
       end
     end
