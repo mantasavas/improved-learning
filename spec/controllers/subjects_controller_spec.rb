@@ -55,14 +55,14 @@ RSpec.describe SubjectsController, type: :controller do
       end
     end
 
-    context 'when user fails to save subject' do
-      it 'title is too short' do
+    context 'when user provides wrong subject information' do
+      it 'entered too short title text' do
         fill_in 'subject[title]', with: 'ss'
         find('[name=commit]').click
         current_path.should eq '/subjects'
       end
 
-      it 'body is too short' do
+      it 'entered too short body text' do
         fill_in 'subject[body]', with: 'ss'
         find('[name=commit]').click
         current_path.should eq '/subjects'
