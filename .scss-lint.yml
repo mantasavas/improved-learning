@@ -1,0 +1,11 @@
+# .scss-lint.yml
+
+linters:
+  NestingDepth:
+    max_depth: 5
+
+  SelectorDepth:
+    max_depth: 5
+
+  QualifyingElement:
+    enabled: false

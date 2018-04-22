@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light justify-content-between style-nabar">
+  <a class="navbar-brand" href="#">
+    <%= image_tag "study.png" %>
+    <span class="header-text">Improved Learning</span>
+  </a>
+  <form class="form-inline">
+    <div class="header-button-input">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+    <div class="form-group row">
+      <% if current_user  %>
+        <li><%= link_to "My Subjects", subjects_path, class: 'btn btn-primary black-btn' %></li>
+        <li><%= link_to "Create Subject", new_subject_path, class: 'btn btn-primary black-btn' %></li>
+        <li><%= link_to "All Subjects", display_all_path, class: 'btn btn-primary black-btn' %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, class: 'btn btn-primary', :method => "delete" %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> </li>
+        <li><%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-secondary' %> </li>
+      <% end %>
+    </div>
+  </form>
+</nav>

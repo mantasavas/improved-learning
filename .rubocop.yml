@@ -1,0 +1,32 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+RSpec/NestedGroups:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 120
+  Exclude:
+    - db/migrate/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*.rb
+
+Style/Documentation:
+  Exclude:
+    - app/helpers/**/*
+    - db/migrate/*
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - bin/*
+

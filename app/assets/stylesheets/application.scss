@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
+@import 'bootstrap';
+
+body {
+  background-color: #f2f7ff;
+  background-image: none;
+}

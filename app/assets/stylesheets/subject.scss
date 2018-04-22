@@ -1,0 +1,87 @@
+// Place all the styles related to the subject controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.subject-container {
+  bottom: 0%;
+  position: absolute;
+  top: -20%;
+  transform: translateX(20%) translateY(30%);
+  width: 75%;
+}
+
+.subject-header {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subject-wrapper {
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.subject-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subject-date {
+  font-weight: bold;
+  text-align: center;
+}
+
+.subject-wrapper:hover {
+  background-color: #e66666;
+  cursor: pointer;
+}
+
+.link_subject {
+  text-decoration: none;
+}
+
+.subject-body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.button-subject {
+  margin: 0 auto;
+  margin-bottom: 8px;
+  width: 200px;
+}
+
+.button-delete {
+  float: right;
+  text-decoration-color: #fff;
+}
+
+.button-delete {
+  padding-left: 50px;
+}
+
+.body_text {
+  height: 300px;
+  width: 100%;
+}
+
+.title_text {
+  height: 50px;
+  width: 100%;
+}
+
+.title_label {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.body_title {
+  font-size: 30px;
+  font-weight: bold;
+}
