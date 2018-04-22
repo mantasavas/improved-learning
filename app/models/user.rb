@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :email, uniqueness: true
-  has_many :subjects
+  has_many :subjects, dependent: :destroy
 
   def self.from_omniauth(auth)
     # binding.pry

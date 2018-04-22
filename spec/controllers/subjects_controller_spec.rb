@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-include Warden::Test::Helpers
-Warden.test_mode!
-
 RSpec.describe SubjectsController, type: :controller do
+  include Warden::Test::Helpers
+  Warden.test_mode!
+
   render_views
 
   let(:user) { create(:user_with_subject) }
