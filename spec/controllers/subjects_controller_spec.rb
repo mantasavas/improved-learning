@@ -37,9 +37,8 @@ RSpec.describe SubjectsController, type: :controller do
       end
     end
 
-    before { login_as(user, scope: :user) }
-
     before do
+      login_as(user, scope: :user)
       visit 'subjects/new'
       fill_in 'subject[title]', with: 'Subject Title'
       fill_in 'subject[body]', with: 'In subject body. This must be longer then 20 symbols minimum'
